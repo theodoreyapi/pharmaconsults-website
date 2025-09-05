@@ -210,13 +210,13 @@
                 <a href="#vaccination" class="d-inline-flex align-items-center"><i
                         class="bi bi-umbrella-plus me-2"></i>Vaccination</a>
             </div>
-            <div class="d-flex align-items-center gap-3">
+            {{-- <div class="d-flex align-items-center gap-3">
                 <a href="#login" data-bs-toggle="modal" data-bs-target="#authModal"><i class="bi bi-person"></i>
                     connexion</a>
                 <a href="#cart" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas"><i class="bi bi-cart"></i>
                     cart</a>
                 <a href="#notifications"><i class="bi bi-bell"></i> Notification</a>
-            </div>
+            </div> --}}
         </div>
     </div>
 
@@ -232,7 +232,7 @@
             </a>
 
             <!-- Cat dropdown (shop for category) -->
-            <div class="dropdown">
+            {{-- <div class="dropdown">
                 <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
                     Shop par catégorie
                 </button>
@@ -260,20 +260,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Search -->
-            <form class="ms-auto me-3 flex-grow-1" role="search">
+            {{-- <form class="ms-auto me-3 flex-grow-1" role="search">
                 <div class="input-group">
                     <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
                     <input class="form-control" type="search" placeholder="Chercher médicament, produit, pharmacie…"
                         aria-label="Search">
                     <button class="btn btn-brand" type="submit">Rechercher</button>
                 </div>
-            </form>
+            </form> --}}
 
             <!-- All categories (simple dropdown) -->
-            <div class="dropdown">
+            {{-- <div class="dropdown">
                 <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">All
                     Category</button>
                 <ul class="dropdown-menu">
@@ -282,12 +282,12 @@
                     <li><a class="dropdown-item" href="#">Cosmétiques</a></li>
                     <li><a class="dropdown-item" href="#">Vétérinaires</a></li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
     </header>
 
     <!-- Category bar -->
-    <nav class="catbar bg-white">
+    {{-- <nav class="catbar bg-white">
         <div class="container d-flex flex-wrap align-items-center justify-content-start">
             <a class="active" href="#">Bon plan</a>
             <a href="#">Santé</a>
@@ -301,7 +301,7 @@
             <a href="#">Solaires</a>
             <a href="#">Vétérinaires</a>
         </div>
-    </nav>
+    </nav> --}}
 
     <!-- Hero -->
     <section class="hero py-5">
@@ -401,7 +401,7 @@
     </section>
 
     <!-- Produits les plus achetés -->
-    <section class="py-5" id="best-sellers">
+    {{-- <section class="py-5" id="best-sellers">
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-4">
                 <h2 class="h4 m-0">Most purchased products</h2>
@@ -480,7 +480,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Pharmacies de garde (aperçu) -->
     {{-- <section class="py-5 bg-light" id="garde">
@@ -516,7 +516,7 @@
     </section> --}}
 
     <!-- Bloc Assurances + Vaccination + Wallet -->
-    <section class="py-5">
+    {{-- <section class="py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4">
@@ -547,7 +547,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Footer -->
     <footer class="footer bg-dark text-white pt-5 pb-4 mt-5">

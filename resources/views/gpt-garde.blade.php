@@ -105,7 +105,7 @@
     </nav>
 
     <!-- Emergency Banner -->
-    <div class="container mt-4">
+    {{-- <div class="container mt-4">
         <div class="emergency-banner">
             <div class="row align-items-center">
                 <div class="col-md-8">
@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Page Header -->
     <div class="container mt-4">
