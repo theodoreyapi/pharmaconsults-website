@@ -216,16 +216,6 @@
                                         <i class="fas fa-map-marker-alt me-2"></i>
                                         ${pharma.address ?? 'Adresse non disponible'}
                                     </p>
-                                    <p class="text-muted mb-2">
-                                        <i class="fas fa-phone me-2"></i>
-                                        ${pharma.phoneNumber ?? 'Non renseigné'}
-                                    </p>
-                                    <a href="${pharma.gpsCoordinates ?? '#'}" target="_blank" class="btn btn-success btn-sm me-2">
-                                        <i class="fas fa-route me-1"></i> Itinéraire
-                                    </a>
-                                    <a href="tel:${pharma.phoneNumber ?? ''}" class="btn btn-primary btn-sm me-2">
-                                        <i class="fas fa-phone me-1"></i> Appeler
-                                    </a>
                                     <button class="btn btn-info btn-sm text-white" onclick='showPharmacyDetails(${JSON.stringify(pharma)})'>
                                         <i class="fas fa-info-circle me-1"></i> Détails
                                     </button>
@@ -250,28 +240,23 @@
                     });
 
                     // Fonction pour afficher les détails dans un modal
+                    // Fonction pour afficher le popup de téléchargement
                     function showPharmacyDetails(pharma) {
                         let modalContent = `
-        <div class="row">
-            <div class="col-md-5">
-                <img src="${pharma.facadeImage}" alt="${pharma.name}" class="img-fluid rounded shadow-sm">
-            </div>
-            <div class="col-md-7">
-                <h4 class="text-success">${pharma.name}</h4>
-                <p><strong>Adresse :</strong> ${pharma.address ?? 'Non renseignée'}</p>
-                <p><strong>Propriétaire :</strong> ${pharma.ownerName ?? 'Non renseigné'}</p>
-                <p><strong>Téléphone :</strong> ${pharma.phoneNumber ?? 'Non renseigné'}</p>
-                <p><strong>WhatsApp :</strong> ${pharma.whatsAppPhoneNumber ?? 'Non renseigné'}</p>
-                <p><strong>Commune :</strong> ${pharma.commune?.name ?? 'Non renseignée'}</p>
-                <p><strong>Horaires :</strong> ${pharma.openingHours ?? 'Non renseignés'}</p>
-                <p>
-                    <a href="${pharma.gpsCoordinates ?? '#'}" target="_blank" class="btn btn-success btn-sm me-2">
-                        <i class="fas fa-route me-1"></i> Itinéraire
-                    </a>
-                    <a href="tel:${pharma.phoneNumber ?? ''}" class="btn btn-primary btn-sm">
-                        <i class="fas fa-phone me-1"></i> Appeler
-                    </a>
-                </p>
+        <div class="text-center">
+            <h4 class="text-success mb-3">Téléchargez notre application</h4>
+            <p>Pour en savoir plus sur <strong>${pharma.name}</strong>, <br> merci de télécharger notre application mobile :</p>
+
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="https://play.google.com/store/apps/details?id=com.aptiotech.pharmaconsult.yapi.pharmaconsult"
+                   target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/360px-Google_Play_Store_badge_EN.svg.png?20220907104002"
+                         alt="Google Play" style="height:50px;">
+                </a>
+                <a href="https://apps.apple.com/app/idXXXXXXXXX" target="_blank">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                         alt="App Store" style="height:50px;">
+                </a>
             </div>
         </div>
     `;
@@ -367,7 +352,7 @@
         <div class="container">
             <div
                 class="pt-4 mt-4 border-top border-secondary d-flex flex-wrap justify-content-between small text-white-50">
-                <div>© {{ date('Y')}} PharmaConsults. Tous droits réservés.</div>
+                <div>© {{ date('Y') }} PharmaConsults. Tous droits réservés.</div>
                 <div>Abidjan, Côte d’Ivoire</div>
             </div>
         </div>

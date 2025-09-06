@@ -199,16 +199,22 @@
             <div class="d-flex flex-wrap gap-3">
                 <a href="{{ url('pharmacie-garde') }}" class="d-inline-flex align-items-center"><i
                         class="bi bi-geo-alt me-2"></i>Pharmacies de garde</a>
-                <a href="#assurances" class="d-inline-flex align-items-center"><i
-                        class="bi bi-shield-check me-2"></i>Assurances</a>
-                <a href="#notices" class="d-inline-flex align-items-center"><i
-                        class="bi bi-file-earmark-text me-2"></i>Notice & Prix des médicaments</a>
-                <a href="#cherche-med" class="d-inline-flex align-items-center"><i
-                        class="bi bi-search me-2"></i>Recherche de médicaments</a>
-                {{-- <a href="#wallet" class="d-inline-flex align-items-center"><i
-                        class="bi bi-wallet2 me-2"></i>Portefeuille électronique</a> --}}
-                <a href="#vaccination" class="d-inline-flex align-items-center"><i
-                        class="bi bi-umbrella-plus me-2"></i>Vaccination</a>
+                <a href="javascript:void(0)" onclick="showDownloadPopup('Assurances')"
+                    class="d-inline-flex align-items-center">
+                    <i class="bi bi-shield-check me-2"></i>Assurances
+                </a>
+                <a href="javascript:void(0)" onclick="showDownloadPopup('Notice & Prix des médicaments')"
+                    class="d-inline-flex align-items-center">
+                    <i class="bi bi-file-earmark-text me-2"></i>Notice & Prix des médicaments
+                </a>
+                <a href="javascript:void(0)" onclick="showDownloadPopup('Recherche de médicaments')"
+                    class="d-inline-flex align-items-center">
+                    <i class="bi bi-search me-2"></i>Recherche de médicaments
+                </a>
+                <a href="javascript:void(0)" onclick="showDownloadPopup('Vaccination')"
+                    class="d-inline-flex align-items-center">
+                    <i class="bi bi-umbrella-plus me-2"></i>Vaccination
+                </a>
             </div>
             {{-- <div class="d-flex align-items-center gap-3">
                 <a href="#login" data-bs-toggle="modal" data-bs-target="#authModal"><i class="bi bi-person"></i>
@@ -219,6 +225,51 @@
             </div> --}}
         </div>
     </div>
+
+    <script>
+        function showDownloadPopup(featureName) {
+            let modalContent = `
+        <div class="text-center">
+            <h4 class="text-success mb-3">Téléchargez notre application</h4>
+            <p>Pour accéder à <strong>${featureName}</strong>, merci de télécharger notre application mobile :</p>
+
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="https://play.google.com/store/apps/details?id=com.aptiotech.pharmaconsult.yapi.pharmaconsult"
+                   target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/360px-Google_Play_Store_badge_EN.svg.png?20220907104002"
+                         alt="Google Play" style="height:50px;">
+                </a>
+                <a href="https://apps.apple.com/app/idXXXXXXXXX" target="_blank">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                         alt="App Store" style="height:50px;">
+                </a>
+            </div>
+        </div>
+    `;
+
+            document.getElementById('pharmacyDetailsContent').innerHTML = modalContent;
+            let modal = new bootstrap.Modal(document.getElementById('pharmacyDetailsModal'));
+            modal.show();
+        }
+    </script>
+
+    <!-- Modal générique pour télécharger l'app -->
+    <div class="modal fade" id="pharmacyDetailsModal" tabindex="-1" aria-labelledby="pharmacyDetailsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="pharmacyDetailsLabel">Informations</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body" id="pharmacyDetailsContent">
+                    <!-- Le contenu sera injecté par showDownloadPopup -->
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Header / main nav -->
     <header class="py-3 bg-white">
@@ -559,7 +610,8 @@
                             style="width:42px;height:42px;">
                             <i class="bi bi-crosshair text-white"></i>
                         </span> --}}
-                        <div class="fw-bold"><img height="50" src="{{ URL::asset('') }}logo-white.png" alt=""></div>
+                        <div class="fw-bold"><img height="50" src="{{ URL::asset('') }}logo-white.png"
+                                alt=""></div>
                     </div>
                     <p class="text-white-50 small">PharmaConsults connecte toutes les pharmacies de Côte d’Ivoire à
                         votre smartphone. Accédez à des informations fiables et des services santé adaptés au contexte
@@ -598,7 +650,7 @@
             </div>
             <div
                 class="pt-4 mt-4 border-top border-secondary d-flex flex-wrap justify-content-between small text-white-50">
-                <div>© {{ date('Y')}} PharmaConsults. Tous droits réservés.</div>
+                <div>© {{ date('Y') }} PharmaConsults. Tous droits réservés.</div>
                 <div>Abidjan, Côte d’Ivoire</div>
             </div>
         </div>
