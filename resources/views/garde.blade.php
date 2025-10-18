@@ -4,11 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/images/favicon.jpg" type="image/png">
-    <title>Pharmacies de Garde - PharmaConsults</title>
+    <title>Pharmacies de Garde</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ URL::asset('style.css') }}">
     <style>
         .pharmacy-card {
             transition: all 0.3s ease;
@@ -77,41 +74,38 @@
             justify-content: center;
             color: #6c757d;
         }
+
+        /* Footer */
+        .footer a {
+            color: #94a3b8
+        }
+
+        .footer a:hover {
+            color: #fff
+        }
     </style>
 </head>
 
 <body>
-    <!-- Navigation Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <i class="fas fa-pills text-success me-2" style="font-size: 1.5rem;"></i>
-                <span class="text-success fw-bold">PharmaConsults</span>
-            </a>
+            <a class="navbar-brand" href="{{ url('/') }}"><img height="50"
+                    src="{{ URL::asset('') }}logo-white.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="pharmacies-garde.html">Pharmacies de garde</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#medicaments">Médicaments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#vaccination">Vaccination</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Pharmacies de Garde</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Emergency Banner -->
-    <div class="container mt-4">
+    {{-- <div class="container mt-4">
         <div class="emergency-banner">
             <div class="row align-items-center">
                 <div class="col-md-8">
@@ -127,7 +121,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Page Header -->
     <div class="container mt-4">
@@ -144,19 +138,16 @@
     <div class="container">
         <div class="search-filters">
             <div class="row g-3">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <label for="commune" class="form-label fw-bold">Commune</label>
                     <select class="form-select" id="commune">
-                        <option value="">Toutes les communes</option>
-                        <option value="abidjan">Abidjan</option>
-                        <option value="bouake">Bouaké</option>
-                        <option value="yamoussoukro">Yamoussoukro</option>
-                        <option value="korhogo">Korhogo</option>
-                        <option value="daloa">Daloa</option>
-                        <option value="san-pedro">San Pedro</option>
+                        <option value="">Sélectionnez la commune</option>
+                        @foreach ($communes['content'] as $item)
+                            <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                        @endforeach
                     </select>
                 </div>
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <label for="quartier" class="form-label fw-bold">Quartier</label>
                     <input type="text" class="form-control" id="quartier" placeholder="Nom du quartier (optionnel)">
                 </div>
@@ -181,7 +172,7 @@
                             <i class="fas fa-undo me-2"></i>Réinitialiser
                         </button>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -203,195 +194,99 @@
                     </div>
                 </div>
 
-                <div id="pharmaciesList">
-                    <!-- Pharmacy cards will be dynamically loaded here -->
-                    <div class="pharmacy-card bg-white p-4 rounded shadow-sm mb-3">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="text-success mb-1">Pharmacie de la Paix</h5>
-                                    <span class="status-open">
-                                        <i class="fas fa-circle me-1"></i>Ouverte 24h/24
-                                    </span>
+                <script>
+                    document.getElementById('commune').addEventListener('change', function() {
+                        let communeId = this.value;
+
+                        if (communeId) {
+                            fetch(`/pharmacies-par-commune/${communeId}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    let pharmaciesContainer = document.getElementById('pharmaciesList');
+                                    pharmaciesContainer.innerHTML = '';
+
+                                    if (Array.isArray(data) && data.length > 0) {
+                                        data.forEach(pharma => {
+                                            pharmaciesContainer.innerHTML += `
+                        <div class="pharmacy-card bg-white p-4 rounded shadow-sm mb-3">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h5 class="text-success mb-1">${pharma.name}</h5>
+                                    <p class="text-muted mb-2">
+                                        <i class="fas fa-map-marker-alt me-2"></i>
+                                        ${pharma.address ?? 'Adresse non disponible'}
+                                    </p>
+                                    <button class="btn btn-info btn-sm text-white" onclick='showPharmacyDetails(${JSON.stringify(pharma)})'>
+                                        <i class="fas fa-info-circle me-1"></i> Détails
+                                    </button>
                                 </div>
-                                <p class="text-muted mb-2">
-                                    <i class="fas fa-map-marker-alt me-2"></i>
-                                    123 Boulevard Principal, Cocody, Abidjan
-                                </p>
-                                <p class="text-muted mb-2">
-                                    <i class="fas fa-phone me-2"></i>
-                                    +225 20 12 34 56
-                                </p>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="distance-badge">
-                                        <i class="fas fa-route me-1"></i>0.5 km
-                                    </span>
-                                    <small class="text-muted">
-                                        <i class="fas fa-star text-warning me-1"></i>
-                                        4.8 (127 avis)
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <div class="d-flex flex-column gap-2">
-                                    <button class="btn btn-success btn-sm">
-                                        <i class="fas fa-route me-1"></i>Itinéraire
-                                    </button>
-                                    <button class="btn btn-outline-primary btn-sm">
-                                        <i class="fas fa-phone me-1"></i>Appeler
-                                    </button>
-                                    <button class="btn btn-outline-info btn-sm">
-                                        <i class="fas fa-info-circle me-1"></i>Détails
-                                    </button>
+                                <div class="col-md-4 text-end">
+                                    <img src="${pharma.facadeImage}" alt="${pharma.name}" class="img-fluid rounded">
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    `;
+                                        });
+                                    } else {
+                                        pharmaciesContainer.innerHTML =
+                                            '<p class="text-center text-muted">Aucune pharmacie trouvée pour cette commune.</p>';
+                                    }
+                                })
+                                .catch(err => {
+                                    console.error(err);
+                                    alert('Erreur lors de la récupération des pharmacies.');
+                                });
+                        }
+                    });
 
-                    <div class="pharmacy-card bg-white p-4 rounded shadow-sm mb-3">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="text-success mb-1">Pharmacie Moderne</h5>
-                                    <span class="status-limited">
-                                        <i class="fas fa-clock me-1"></i>Ouvre à 8h00
-                                    </span>
-                                </div>
-                                <p class="text-muted mb-2">
-                                    <i class="fas fa-map-marker-alt me-2"></i>
-                                    456 Avenue de la République, Plateau, Abidjan
-                                </p>
-                                <p class="text-muted mb-2">
-                                    <i class="fas fa-phone me-2"></i>
-                                    +225 20 98 76 54
-                                </p>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="distance-badge">
-                                        <i class="fas fa-route me-1"></i>1.2 km
-                                    </span>
-                                    <small class="text-muted">
-                                        <i class="fas fa-star text-warning me-1"></i>
-                                        4.5 (89 avis)
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <div class="d-flex flex-column gap-2">
-                                    <button class="btn btn-success btn-sm">
-                                        <i class="fas fa-route me-1"></i>Itinéraire
-                                    </button>
-                                    <button class="btn btn-outline-primary btn-sm">
-                                        <i class="fas fa-phone me-1"></i>Appeler
-                                    </button>
-                                    <button class="btn btn-outline-info btn-sm">
-                                        <i class="fas fa-info-circle me-1"></i>Détails
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    // Fonction pour afficher les détails dans un modal
+                    // Fonction pour afficher le popup de téléchargement
+                    function showPharmacyDetails(pharma) {
+                        let modalContent = `
+        <div class="text-center">
+            <h4 class="text-success mb-3">Téléchargez notre application</h4>
+            <p>Pour en savoir plus sur <strong>${pharma.name}</strong>, <br> merci de télécharger notre application mobile :</p>
 
-                    <div class="pharmacy-card bg-white p-4 rounded shadow-sm mb-3">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="text-success mb-1">Pharmacie du Centre</h5>
-                                    <span class="status-open">
-                                        <i class="fas fa-circle me-1"></i>Ouverte jusqu'à 22h
-                                    </span>
-                                </div>
-                                <p class="text-muted mb-2">
-                                    <i class="fas fa-map-marker-alt me-2"></i>
-                                    789 Rue Centrale, Marcory, Abidjan
-                                </p>
-                                <p class="text-muted mb-2">
-                                    <i class="fas fa-phone me-2"></i>
-                                    +225 20 11 22 33
-                                </p>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="distance-badge">
-                                        <i class="fas fa-route me-1"></i>2.1 km
-                                    </span>
-                                    <small class="text-muted">
-                                        <i class="fas fa-star text-warning me-1"></i>
-                                        4.7 (156 avis)
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <div class="d-flex flex-column gap-2">
-                                    <button class="btn btn-success btn-sm">
-                                        <i class="fas fa-route me-1"></i>Itinéraire
-                                    </button>
-                                    <button class="btn btn-outline-primary btn-sm">
-                                        <i class="fas fa-phone me-1"></i>Appeler
-                                    </button>
-                                    <button class="btn btn-outline-info btn-sm">
-                                        <i class="fas fa-info-circle me-1"></i>Détails
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="https://play.google.com/store/apps/details?id=com.aptiotech.pharmaconsult.yapi.pharmaconsult"
+                   target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/360px-Google_Play_Store_badge_EN.svg.png?20220907104002"
+                         alt="Google Play" style="height:50px;">
+                </a>
+                <a href="https://apps.apple.com/app/idXXXXXXXXX" target="_blank">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                         alt="App Store" style="height:50px;">
+                </a>
+            </div>
+        </div>
+    `;
 
-                    <div class="pharmacy-card bg-white p-4 rounded shadow-sm mb-3">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="text-success mb-1">Pharmacie de l'Espoir</h5>
-                                    <span class="status-closed">
-                                        <i class="fas fa-times-circle me-1"></i>Fermée - Urgence seulement
-                                    </span>
-                                </div>
-                                <p class="text-muted mb-2">
-                                    <i class="fas fa-map-marker-alt me-2"></i>
-                                    321 Boulevard des Martyrs, Treichville, Abidjan
-                                </p>
-                                <p class="text-muted mb-2">
-                                    <i class="fas fa-phone me-2"></i>
-                                    +225 20 55 44 33
-                                </p>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="distance-badge">
-                                        <i class="fas fa-route me-1"></i>3.5 km
-                                    </span>
-                                    <small class="text-muted">
-                                        <i class="fas fa-star text-warning me-1"></i>
-                                        4.2 (73 avis)
-                                    </small>
-                                </div>
+                        document.getElementById('pharmacyDetailsContent').innerHTML = modalContent;
+                        let modal = new bootstrap.Modal(document.getElementById('pharmacyDetailsModal'));
+                        modal.show();
+                    }
+                </script>
+
+                <!-- Conteneur des pharmacies -->
+                <div id="pharmaciesList"></div>
+
+                <!-- Modal pour les détails -->
+                <div class="modal fade" id="pharmacyDetailsModal" tabindex="-1" aria-labelledby="pharmacyDetailsLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success text-white">
+                                <h5 class="modal-title" id="pharmacyDetailsLabel">Détails de la pharmacie</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                    aria-label="Fermer"></button>
                             </div>
-                            <div class="col-md-4 text-end">
-                                <div class="d-flex flex-column gap-2">
-                                    <button class="btn btn-success btn-sm">
-                                        <i class="fas fa-route me-1"></i>Itinéraire
-                                    </button>
-                                    <button class="btn btn-outline-danger btn-sm">
-                                        <i class="fas fa-exclamation-triangle me-1"></i>Urgence
-                                    </button>
-                                    <button class="btn btn-outline-info btn-sm">
-                                        <i class="fas fa-info-circle me-1"></i>Détails
-                                    </button>
-                                </div>
+                            <div class="modal-body" id="pharmacyDetailsContent">
+                                <!-- Contenu injecté en JS -->
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pagination -->
-                <nav aria-label="Page navigation" class="mt-4">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
 
             <!-- Map Sidebar -->
@@ -436,7 +331,7 @@
                                 <p class="mb-1"><strong>Samedi:</strong> 8h - 18h</p>
                                 <p class="mb-0"><strong>Dimanche:</strong> Garde uniquement</p>
                             </div>
-                            <div>
+                            {{-- <div>
                                 <h6 class="text-success">Services disponibles</h6>
                                 <ul class="list-unstyled mb-0">
                                     <li><i class="fas fa-check text-success me-2"></i>Ordonnances</li>
@@ -444,7 +339,7 @@
                                     <li><i class="fas fa-check text-success me-2"></i>Tests rapides</li>
                                     <li><i class="fas fa-check text-success me-2"></i>Conseils pharmaceutiques</li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -453,31 +348,17 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
+    <footer class="footer bg-dark text-white pt-5 pb-4 mt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>PharmaConsults</h5>
-                    <p class="mb-0">Votre compagnon santé intelligent en Côte d'Ivoire</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="social-links">
-                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-3">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2025 PharmaConsults. Tous droits réservés.</p>
+            <div
+                class="pt-4 mt-4 border-top border-secondary d-flex flex-wrap justify-content-between small text-white-50">
+                <div>© {{ date('Y') }} PharmaConsults. Tous droits réservés.</div>
+                <div>Abidjan, Côte d’Ivoire</div>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ URL::asset('pharmacy-guard.js') }}"></script>
 </body>
 
 </html>
