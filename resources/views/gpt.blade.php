@@ -118,8 +118,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Topbar */
@@ -136,6 +141,7 @@
                 transform: translateY(-100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -191,11 +197,16 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, #0b7885 0%, #0e9fb1 50%, #12bcd3 100%);
+            background-image:
+                url('banniere.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: #fff;
             position: relative;
             overflow: hidden;
             padding: 100px 0;
+            height: 600px;
         }
 
         .hero::before {
@@ -225,9 +236,17 @@
         }
 
         @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-            100% { transform: translateY(0) rotate(0deg); }
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
         }
 
         .hero h1,
@@ -251,9 +270,17 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .hero h1 {
@@ -267,6 +294,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -306,8 +334,13 @@
         }
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Icônes réseaux sociaux */
@@ -685,26 +718,11 @@
         <div class="container">
             <div class="row align-items-center g-4">
                 <div class="col-lg-6 text-white">
-                    <span class="badge rounded-pill px-3 py-2 mb-3">Votre santé connectée</span>
-                    <h1 class="display-5 fw-bold mb-3">ASSISTANCE MÉDICALE</h1>
-                    <p class="lead mb-4">
-                        Trouvez une pharmacie, vérifiez la disponibilité d'un médicament, payez en toute sécurité
-                        et shoppez vos produits de parapharmacie – partout en Côte d'Ivoire.
-                    </p>
 
-                    <div class="mt-4 small opacity-100 fw-semibold">
-                        Suivez-nous :
-                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
-                    </div>
                 </div>
 
                 <div class="col-lg-6 d-flex justify-content-lg-end justify-content-center">
-                    <div class="hero-illu">
-                        <i class="bi bi-capsule"></i>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -826,8 +844,8 @@
             <div
                 class="pt-4 mt-4 border-top border-secondary d-flex flex-wrap justify-content-between small text-white-50">
                 <div>© {{ date('Y') }} PharmaConsults. Tous droits réservés.</div>
-               <div>Abidjan, Côte d'Ivoire - par <span class="text-primary-600"><a href="https://www.aptiotech.com"
-                        target="_blank">AptioTech</a>
+                <div>Abidjan, Côte d'Ivoire - par <span class="text-primary-600"><a href="https://www.aptiotech.com"
+                            target="_blank">AptioTech</a>
                 </div>
             </div>
         </div>
