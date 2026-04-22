@@ -9,7 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet" />
-        @stack('csss')
+    @stack('csss')
     <style>
         *,
         body {
@@ -243,7 +243,9 @@
     <section class="bg-gradient-to-b from-green-50 to-white py-14">
         <div class="max-w-7xl mx-auto px-5 lg:px-8">
             <div class="text-center mb-10">
-                <p class="text-green-600 text-xs font-semibold uppercase tracking-widest mb-2">mardi 21 avril 2026
+                <p class="text-green-600 text-xs font-semibold uppercase tracking-widest mb-2">
+                    Du {{ \Carbon\Carbon::parse($periodes[0]['date_debut'])->locale('fr')->translatedFormat('d F') }}
+                    au {{ \Carbon\Carbon::parse($periodes[0]['date_fin'])->locale('fr')->translatedFormat('d F Y') }}
                 </p>
                 <h1 class="font-display text-4xl font-extrabold text-gray-900 mb-4">Pharmacies de garde</h1>
                 <p class="text-gray-500 max-w-xl mx-auto text-sm">Consultez la liste des pharmacies ouvertes

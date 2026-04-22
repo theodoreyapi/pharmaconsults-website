@@ -255,7 +255,7 @@
             <div class="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 mb-12">
                 <h2 class="font-display text-2xl font-extrabold text-gray-900 mb-4">Notre mission</h2>
                 <p class="text-gray-600 leading-relaxed mb-4">Démocratiser l'accès à l'information santé en Côte
-                    d'Ivoire. PharmaConsults agrège en temps réel les données de plus de 500 pharmacies à travers le
+                    d'Ivoire. PharmaConsults agrège en temps réel les données de plus de 1000 pharmacies à travers le
                     pays pour vous offrir une expérience fluide, fiable et toujours à portée de main.</p>
                 <p class="text-gray-600 leading-relaxed">Nous croyons que chaque bonne information peut sauver une
                     vie. C'est pourquoi nous mettons toute notre énergie à construire des outils simples,
@@ -263,7 +263,7 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
                 <div class="stat-card p-6 text-center">
-                    <p class="font-display text-3xl font-extrabold text-green-500 mb-1">+500</p>
+                    <p class="font-display text-3xl font-extrabold text-green-500 mb-1">+1000</p>
                     <p class="text-gray-500 text-sm">Pharmacies</p>
                 </div>
                 <div class="stat-card p-6 text-center">
@@ -275,7 +275,7 @@
                     <p class="text-gray-500 text-sm">Utilisateurs</p>
                 </div>
                 <div class="stat-card p-6 text-center">
-                    <p class="font-display text-3xl font-extrabold text-green-500 mb-1">10</p>
+                    <p class="font-display text-3xl font-extrabold text-green-500 mb-1">42</p>
                     <p class="text-gray-500 text-sm">Communes</p>
                 </div>
             </div>

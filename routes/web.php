@@ -86,9 +86,18 @@ Route::get('pharmacies', function () {
     ])->get(env('API_BASE_URL_PHARMA') . '/pharma/communes/search?page=0&size=1000');
 
     if ($response->status() == 200) {
+
+        $periode = Http::withOptions([
+            'verify' => false
+        ])->withHeaders([
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+        ])->get(env('API_BASE_URL_PHARMA') . '/periodes-garde');
+
+        $periodes = $periode->json();
         $communes = $response->json();
 
-        return view('pharmacie', compact('communes'));
+        return view('pharmacie', compact('communes', 'periodes'));
     } else {
         return back()->withErrors(["Impossible de charger les communes. Veuillez réessayer!!"]);
     }

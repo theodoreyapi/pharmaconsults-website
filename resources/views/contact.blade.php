@@ -243,10 +243,10 @@
     <section class="bg-gradient-to-b from-green-50 to-white py-20">
         <div class="max-w-6xl mx-auto px-5">
             <div class="text-center mb-12">
-                <span
+                {{-- <span
                     class="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6">Nous
-                    écrire</span>
-                <h1 class="font-display text-5xl font-extrabold text-gray-900 mb-4">Parlons de votre <span class="text-green-500">projet</span></h1>
+                    écrire</span> --}}
+                <h1 class="font-display text-5xl font-extrabold text-gray-900 mb-4">Écrivez-<span class="text-green-500">nous</span></h1>
                 <p class="text-gray-500 max-w-md mx-auto">Une question, un partenariat, un retour ? Notre équipe
                     est à votre écoute.</p>
             </div>

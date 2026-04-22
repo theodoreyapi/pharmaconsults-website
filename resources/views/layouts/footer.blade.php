@@ -145,27 +145,30 @@
                         d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
             </div>
-            <h2 class="text-2xl font-bold leading-tight mb-4">Accédez à toutes les fonctionnalités sur notre
-                application</h2>
-            <p class="text-sm opacity-90 font-medium">PharmaConsults vous offre une meilleure expérience sur mobile</p>
+            <h2 class="text-2xl font-bold leading-tight mb-4">Accédez à tous nos services sur l'application</h2>
+            <p class="text-sm opacity-90 font-medium">PharmaConsults vous offre une expérience plus simple, plus rapide et plus prtique sur mobile.</p>
         </div>
 
         <div class="p-8 space-y-4">
             <div class="flex items-start gap-3">
                 <span class="text-emerald-500 text-xl">✨</span>
-                <p class="text-gray-700 font-medium">Commander vos médicaments en quelques clics</p>
+                <p class="text-gray-700 font-medium">Trouvez une pharmacie de garde rapidement</p>
             </div>
             <div class="flex items-start gap-3">
                 <span class="text-emerald-500 text-xl">✨</span>
-                <p class="text-gray-700 font-medium">Voir la disponibilité en temps réel</p>
+                <p class="text-gray-700 font-medium">Consultez les prix des médicaments</p>
             </div>
             <div class="flex items-start gap-3">
                 <span class="text-emerald-500 text-xl">✨</span>
-                <p class="text-gray-700 font-medium">Accéder à votre portefeuille électronique</p>
+                <p class="text-gray-700 font-medium">Vérifiez la disponibilité des produits</p>
             </div>
             <div class="flex items-start gap-3">
                 <span class="text-emerald-500 text-xl">✨</span>
-                <p class="text-gray-700 font-medium">Recevoir vos notices et notifications</p>
+                <p class="text-gray-700 font-medium">Accédez à vos services d'assurance</p>
+            </div>
+            <div class="flex items-start gap-3">
+                <span class="text-emerald-500 text-xl">✨</span>
+                <p class="text-gray-700 font-medium">Recevez des alertes et notifications utiles</p>
             </div>
         </div>
 

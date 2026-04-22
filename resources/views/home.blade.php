@@ -9,7 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet" />
-        @stack('csss')
+    @stack('csss')
     <style>
         *,
         body {
@@ -256,7 +256,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                             </svg>
-                            Nouvelle app santé en Côte d'Ivoire
+                            Meilleure app santé de Côte d'Ivoire
                         </span>
 
                         <h1 class="font-display text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.06] mb-6">
@@ -267,11 +267,12 @@
 
                         <p class="text-gray-600 text-lg leading-relaxed mb-10 max-w-lg">
                             PharmaConsults connecte toutes les pharmacies de Côte d'Ivoire. Trouvez les pharmacies de
-                            garde, consultez les notices, vérifiez la disponibilité — tout depuis votre téléphone.
+                            garde, consultez les prix, vérifiez la disponibilité. Tout depuis votre téléphone.
                         </p>
 
                         <div class="flex flex-wrap gap-3 mb-12">
-                            <a onclick="openModal('modal-st-cecile')" class="btn-store flex items-center gap-3 text-white px-5 py-3">
+                            <a onclick="openModal('modal-st-cecile')"
+                                class="btn-store flex items-center gap-3 text-white px-5 py-3">
                                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M3.18 23.76c.27.15.58.2.9.15l12.16-6.87-2.5-2.5-10.56 9.22zm15.4-13.16L4.02.52C3.7.36 3.37.34 3.1.5L13.77 11.17l4.81-.57zm2.1 1.1c-.38-.2-.87-.2-1.25 0l-1.87 1.05 2.5 2.5 1.92-1.08c.64-.37.64-1.32 0-1.68zM3.1.5c-.3.16-.46.5-.46.83v21.34c0 .33.16.67.46.83L13.77 13 3.1.5z" />
@@ -282,7 +283,8 @@
                                     <p class="text-base font-bold leading-snug">Google Play</p>
                                 </div>
                             </a>
-                            <a onclick="openModal('modal-st-cecile')" class="btn-store flex items-center gap-3 text-white px-5 py-3">
+                            <a onclick="openModal('modal-st-cecile')"
+                                class="btn-store flex items-center gap-3 text-white px-5 py-3">
                                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.14-2.19 1.28-2.17 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.77M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
@@ -297,7 +299,7 @@
 
                         <div class="flex items-center gap-10">
                             <div>
-                                <p class="font-display text-3xl font-extrabold text-green-500">+500</p>
+                                <p class="font-display text-3xl font-extrabold text-green-500">+1000</p>
                                 <p class="text-gray-500 text-sm mt-0.5">Pharmacies connectées</p>
                             </div>
                             <div>
@@ -312,50 +314,138 @@
                     </div>
 
                     <!-- Right: Image -->
-                    <div class="relative flex justify-center lg:justify-end">
-                        <div class="relative w-72 lg:w-80 xl:w-[22rem]" style="aspect-ratio:3/4;">
-                            <!-- Main image -->
-                            <div class="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-                                <img src="{{ URL::asset('header.jpeg') }}"
-                                    alt="Femme utilisant PharmaConsults" class="w-full h-full object-cover"
-                                    onerror="this.parentElement.style.background='linear-gradient(135deg,#d1fae5,#a7f3d0)'" />
+                    <div class="relative flex justify-center lg:justify-end" style="padding: 1rem 2.5rem;">
+
+                        <div class="relative bg-black p-[6px] rounded-[2.8rem] shadow-[0_30px_80px_rgba(0,0,0,0.25)]">
+
+                            <div
+                                class="absolute inset-0 rounded-[2.8rem] pointer-events-none bg-gradient-to-tr from-white/10 via-transparent to-transparent">
                             </div>
 
-                            <!-- Badge top right: Doliprane dispo -->
-                            <div class="badge-float absolute -top-4 -right-8 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3"
-                                style="min-width:175px;">
-                                <div
-                                    class="w-9 h-9 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <polyline stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-gray-900">Doliprane dispo</p>
-                                    <p class="text-xs text-gray-500">stock confirmé</p>
-                                </div>
+                            <div class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 bg-black rounded-full z-20">
                             </div>
 
-                            <!-- Badge bottom left: Pharmacie ouverte -->
-                            <div class="badge-float2 absolute -bottom-4 -left-8 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3"
-                                style="min-width:190px;">
+                            <div class="relative w-64 lg:w-72 xl:w-[19rem] rounded-[2.3rem] overflow-hidden bg-white"
+                                style="aspect-ratio: 9 / 19;">
+
                                 <div
-                                    class="w-9 h-9 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                    </svg>
+                                    class="absolute inset-0 bg-gradient-to-b from-white/5 to-black/5 pointer-events-none z-10">
                                 </div>
-                                <div>
-                                    <p class="text-sm font-bold text-gray-900">Pharmacie ouverte</p>
-                                    <p class="text-xs text-gray-500">à 1.2 km de vous</p>
+
+                                <div class="w-full h-full overflow-hidden" id="hero-slideshow">
+                                    <div id="slideshow-track" class="flex h-full"
+                                        style="width: 400%; transition: transform 0.7s ease-in-out;">
+
+                                        <div class="h-full w-full flex-shrink-0" style="width:25%;">
+                                            <img src="{{ URL::asset('header.jpeg') }}"
+                                                class="w-full h-full object-cover" />
+                                        </div>
+
+                                        <div class="h-full w-full flex-shrink-0" style="width:25%;">
+                                            <img src="{{ URL::asset('splash.jpg') }}"
+                                                class="w-full h-full object-cover" />
+                                        </div>
+
+                                        <div class="h-full w-full flex-shrink-0" style="width:25%;">
+                                            <img src="{{ URL::asset('liste.jpg') }}"
+                                                class="w-full h-full object-cover" />
+                                        </div>
+
+                                        <div class="h-full w-full flex-shrink-0" style="width:25%;">
+                                            <img src="{{ URL::asset('garde.jpg') }}"
+                                                class="w-full h-full object-cover" />
+                                        </div>
+
+                                        <div class="h-full w-full flex-shrink-0" style="width:25%;">
+                                            <img src="{{ URL::asset('prix.jpg') }}"
+                                                class="w-full h-full object-cover" />
+                                        </div>
+
+                                        <div class="h-full w-full flex-shrink-0" style="width:25%;">
+                                            <img src="{{ URL::asset('assurance.jpg') }}"
+                                                class="w-full h-full object-cover" />
+                                        </div>
+
+                                    </div>
                                 </div>
+
+                                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20"
+                                    id="slideshow-dots">
+                                    <button class="dot h-1.5 rounded-full bg-white/80 transition-all duration-300"
+                                        style="width:16px; opacity:1;" data-index="0"></button>
+                                    <button class="dot h-1.5 rounded-full bg-white/40 transition-all duration-300"
+                                        style="width:6px;" data-index="1"></button>
+                                    <button class="dot h-1.5 rounded-full bg-white/40 transition-all duration-300"
+                                        style="width:6px;" data-index="2"></button>
+                                    <button class="dot h-1.5 rounded-full bg-white/40 transition-all duration-300"
+                                        style="width:6px;" data-index="3"></button>
+                                    <button class="dot h-1.5 rounded-full bg-white/40 transition-all duration-300"
+                                        style="width:6px;" data-index="2"></button>
+                                    <button class="dot h-1.5 rounded-full bg-white/40 transition-all duration-300"
+                                        style="width:6px;" data-index="3"></button>
+                                </div>
+
                             </div>
                         </div>
+
+                        <div class="absolute -top-2 -right-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 z-30 border border-gray-100"
+                            style="min-width:175px;">
+                            <div class="w-9 h-9 bg-blue-50 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <polyline stroke-width="2" points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900">Doliprane dispo</p>
+                                <p class="text-xs text-gray-500">stock confirmé</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute -bottom-5 left-12 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 z-30 border border-gray-100"
+                            style="min-width:190px;">
+                            <div class="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.6-4A12 12 0 0112 3a12 12 0 01-8.6 3A12 12 0 003 9c0 5.6 3.8 10.3 9 11.6 5.2-1.3 9-6 9-11.6 0-1-.1-2-.4-3z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900">Pharmacie ouverte</p>
+                                <p class="text-xs text-gray-500">à 1.2 km de vous</p>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <!-- SCRIPT -->
+                    <script>
+                        (function() {
+                            const track = document.getElementById('slideshow-track');
+                            const dots = document.querySelectorAll('#slideshow-dots .dot');
+                            const total = dots.length;
+                            let current = 0;
+
+                            function goTo(index) {
+                                current = index;
+                                track.style.transform = `translateX(-${current * 25}%)`;
+
+                                dots.forEach((d, i) => {
+                                    d.style.opacity = i === current ? '1' : '0.4';
+                                    d.style.width = i === current ? '16px' : '6px';
+                                });
+                            }
+
+                            dots.forEach(dot => {
+                                dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index)));
+                            });
+
+                            setInterval(() => {
+                                goTo((current + 1) % total);
+                            }, 3500);
+                        })();
+                    </script>
 
                 </div>
             </div>
@@ -372,7 +462,7 @@
                 </div>
                 <!-- Row 1: 4 cards -->
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                    <div class="feat-card p-6">
+                    <a href="{{ route('pharmacies') }}" class="feat-card p-6">
                         <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center mb-5">
                             <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -385,7 +475,7 @@
                         <h3 class="font-display font-bold text-gray-900 mb-2">Pharmacies de garde</h3>
                         <p class="text-gray-500 text-sm leading-relaxed">Trouvez la pharmacie ouverte la plus proche,
                             24h/24.</p>
-                    </div>
+                    </a>
                     <div class="feat-card p-6">
                         <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center mb-5">
                             <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor"
@@ -472,7 +562,7 @@
                         <p class="text-green-600 font-bold text-xs uppercase tracking-widest mb-4">Pourquoi
                             PharmaConsults</p>
                         <h2 class="font-display text-4xl font-extrabold text-gray-900 mb-6 leading-tight">Une santé
-                            accessible, partout en<br />Côte d'Ivoire</h2>
+                            accessible, partout en Côte d'Ivoire</h2>
                         <p class="text-gray-600 mb-8 leading-relaxed">Nous travaillons main dans la main avec les
                             pharmacies pour rendre l'information santé fiable, instantanée et utile au quotidien.</p>
                         <ul class="space-y-4">
@@ -485,7 +575,7 @@
                                             d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Données vérifiées par des pharmaciens diplômés</span>
+                                <span class="text-gray-700">Développé par des pharmaciens expérimentés</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <div
@@ -520,7 +610,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 </svg></div>
-                            <p class="font-display text-3xl font-extrabold text-green-500">+500</p>
+                            <p class="font-display text-3xl font-extrabold text-green-500">+1000</p>
                             <p class="text-gray-500 text-sm mt-1">Pharmacies</p>
                         </div>
                         <div class="stat-card p-7">
@@ -565,8 +655,10 @@
                     <div>
                         <p class="text-green-600 font-bold text-xs uppercase tracking-widest mb-3">PARAPHARMACIE
                         </p>
-                        <h2 class="font-display text-4xl font-extrabold text-gray-900 mb-2">Soins, hygiène & bien-être</h2>
-                        <p class="text-gray-500 text-sm">Découvrez une sélection de produits de parapharmacie proposés par nos partenaires pour toute la famille.</p>
+                        <h2 class="font-display text-4xl font-extrabold text-gray-900 mb-2">Soins, hygiène & bien-être
+                        </h2>
+                        <p class="text-gray-500 text-sm">Découvrez une sélection de produits de parapharmacie proposés
+                            par nos partenaires pour toute la famille.</p>
                     </div>
                     <button onclick="openModal('modal-st-cecile')"
                         class="hidden sm:flex items-center gap-2 border border-gray-200 text-gray-700 text-sm font-medium px-4 py-2.5 rounded-xl hover:border-green-400 hover:text-green-700 transition-colors flex-shrink-0 mt-2 whitespace-nowrap">
@@ -576,105 +668,105 @@
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     <!-- cards with white bg, badge top-left on image, green price, green full button -->
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                        <div class="relative"><img
-                                src="{{ URL::asset('douche.jpeg') }}"
+                        <div class="relative"><img src="{{ URL::asset('douche.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">HYGIÈNE</span>
                         </div>
                         <div class="p-4">
                             <h3 class="font-display font-bold text-gray-900 mb-1">Gel douche dermatologique</h3>
-                            <p class="text-green-500 font-bold mb-3">4 500 FCFA</p><button onclick="openModal('modal-st-cecile')"
+                            <p class="text-green-500 font-bold mb-3">4 500 FCFA</p><button
+                                onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                        <div class="relative"><img
-                                src="{{ URL::asset('vitamine.jpeg') }}"
+                        <div class="relative"><img src="{{ URL::asset('vitamine.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">COMPLÉMENT</span>
                         </div>
                         <div class="p-4">
                             <h3 class="font-display font-bold text-gray-900 mb-1">Vitamine C 1000</h3>
-                            <p class="text-green-500 font-bold mb-3">3 500 FCFA</p><button onclick="openModal('modal-st-cecile')"
+                            <p class="text-green-500 font-bold mb-3">3 500 FCFA</p><button
+                                onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                        <div class="relative"><img
-                                src="{{ URL::asset('creme.jpeg') }}"
+                        <div class="relative"><img src="{{ URL::asset('creme.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Cosmétique</span>
                         </div>
                         <div class="p-4">
                             <h3 class="font-display font-bold text-gray-900 mb-1">Crème hydratante</h3>
-                            <p class="text-green-500 font-bold mb-3">8 500 FCFA</p><button onclick="openModal('modal-st-cecile')"
+                            <p class="text-green-500 font-bold mb-3">8 500 FCFA</p><button
+                                onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                        <div class="relative"><img
-                                src="{{ URL::asset('bebe.jpeg') }}"
+                        <div class="relative"><img src="{{ URL::asset('bebe.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Bébé</span>
                         </div>
                         <div class="p-4">
                             <h3 class="font-display font-bold text-gray-900 mb-1">Lotion bébé apaisante</h3>
-                            <p class="text-green-500 font-bold mb-3">2 800 FCFA</p><button onclick="openModal('modal-st-cecile')"
+                            <p class="text-green-500 font-bold mb-3">2 800 FCFA</p><button
+                                onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                        <div class="relative"><img
-                                src="{{ URL::asset('mains.jpeg') }}"
+                        <div class="relative"><img src="{{ URL::asset('mains.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Hygiène</span>
                         </div>
                         <div class="p-4">
                             <h3 class="font-display font-bold text-gray-900 mb-1">Gel mains antiséptique</h3>
-                            <p class="text-green-500 font-bold mb-3">2 200 FCFA</p><button onclick="openModal('modal-st-cecile')"
+                            <p class="text-green-500 font-bold mb-3">2 200 FCFA</p><button
+                                onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                        <div class="relative"><img
-                                src="{{ URL::asset('serum.jpeg') }}"
+                        <div class="relative"><img src="{{ URL::asset('serum.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Cosmétique</span>
                         </div>
                         <div class="p-4">
                             <h3 class="font-display font-bold text-gray-900 mb-1">Sérum visage anti-âge</h3>
-                            <p class="text-green-500 font-bold mb-3">12 500 FCFA</p><button onclick="openModal('modal-st-cecile')"
+                            <p class="text-green-500 font-bold mb-3">12 500 FCFA</p><button
+                                onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                        <div class="relative"><img
-                                src="{{ URL::asset('multi.jpeg') }}"
+                        <div class="relative"><img src="{{ URL::asset('multi.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Complément</span>
                         </div>
                         <div class="p-4">
                             <h3 class="font-display font-bold text-gray-900 mb-1">Multi-vitamines</h3>
-                            <p class="text-green-500 font-bold mb-3">4 900 FCFA</p><button onclick="openModal('modal-st-cecile')"
+                            <p class="text-green-500 font-bold mb-3">4 900 FCFA</p><button
+                                onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                        <div class="relative"><img
-                                src="{{ URL::asset('digital.jpeg') }}"
+                        <div class="relative"><img src="{{ URL::asset('digital.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Matériel</span>
                         </div>
                         <div class="p-4">
                             <h3 class="font-display font-bold text-gray-900 mb-1">Thermomètre digital</h3>
-                            <p class="text-green-500 font-bold mb-3">7 500 FCFA</p><button onclick="openModal('modal-st-cecile')"
+                            <p class="text-green-500 font-bold mb-3">7 500 FCFA</p><button
+                                onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
                         </div>
@@ -730,15 +822,20 @@
                     </div>
                     <!-- Phone mockup -->
                     <div class="phone-mock hidden md:flex flex-col items-center justify-center gap-3 flex-shrink-0">
-                        <div class="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center shadow-md">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <polyline stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                            </svg>
+
+                        <!-- Cadre téléphone -->
+                        <div class="bg-black p-1 rounded-[2.5rem] shadow-2xl">
+
+                            <!-- Ecran -->
+                            <!-- Remplace w-[220px] h-[420px] par une hauteur relative -->
+                            <div
+                                class="w-[180px] h-[340px] bg-green-500 rounded-[2rem] overflow-hidden flex items-center justify-center">
+                                <img src="{{ URL::asset('login.jpg') }}" alt=""
+                                    class="w-full h-full object-cover">
+                            </div>
+
                         </div>
-                        <p class="font-display font-bold text-gray-900 text-sm">PharmaConsults</p>
-                        <p class="text-gray-400 text-xs">Votre santé connectée</p>
+
                     </div>
                 </div>
             </div>
