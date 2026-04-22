@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet" />
+        @stack('csss')
     <style>
         *,
         body {
@@ -315,7 +316,7 @@
                         <div class="relative w-72 lg:w-80 xl:w-[22rem]" style="aspect-ratio:3/4;">
                             <!-- Main image -->
                             <div class="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-                                <img src="https://id-preview--09f551fc-9ba0-4b34-bd4a-c2729ffe2e56.lovable.app/assets/hero-woman-DZd_J5iZ.jpg"
+                                <img src="{{ URL::asset('header.jpeg') }}"
                                     alt="Femme utilisant PharmaConsults" class="w-full h-full object-cover"
                                     onerror="this.parentElement.style.background='linear-gradient(135deg,#d1fae5,#a7f3d0)'" />
                             </div>
@@ -562,14 +563,12 @@
             <div class="max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="flex items-start justify-between mb-10">
                     <div>
-                        <p class="text-green-600 font-bold text-xs uppercase tracking-widest mb-3">Produits populaires
+                        <p class="text-green-600 font-bold text-xs uppercase tracking-widest mb-3">PARAPHARMACIE
                         </p>
-                        <h2 class="font-display text-4xl font-extrabold text-gray-900 mb-2">Médicaments, soins &
-                            cosmétiques</h2>
-                        <p class="text-gray-500 text-sm">Un aperçu de ce que vous trouverez dans nos pharmacies
-                            partenaires.</p>
+                        <h2 class="font-display text-4xl font-extrabold text-gray-900 mb-2">Soins, hygiène & bien-être</h2>
+                        <p class="text-gray-500 text-sm">Découvrez une sélection de produits de parapharmacie proposés par nos partenaires pour toute la famille.</p>
                     </div>
-                    <button
+                    <button onclick="openModal('modal-st-cecile')"
                         class="hidden sm:flex items-center gap-2 border border-gray-200 text-gray-700 text-sm font-medium px-4 py-2.5 rounded-xl hover:border-green-400 hover:text-green-700 transition-colors flex-shrink-0 mt-2 whitespace-nowrap">
                         Voir tous les produits →
                     </button>
@@ -578,22 +577,22 @@
                     <!-- cards with white bg, badge top-left on image, green price, green full button -->
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
                         <div class="relative"><img
-                                src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80&auto=format&fit=crop"
+                                src="{{ URL::asset('douche.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
-                                class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Médicament</span>
+                                class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">HYGIÈNE</span>
                         </div>
                         <div class="p-4">
-                            <h3 class="font-display font-bold text-gray-900 mb-1">Doliprane 1000mg</h3>
-                            <p class="text-green-500 font-bold mb-3">1 500 FCFA</p><button onclick="openModal('modal-st-cecile')"
+                            <h3 class="font-display font-bold text-gray-900 mb-1">Gel douche dermatologique</h3>
+                            <p class="text-green-500 font-bold mb-3">4 500 FCFA</p><button onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
                         </div>
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
                         <div class="relative"><img
-                                src="https://images.unsplash.com/photo-1550572017-edd951b55104?w=500&q=80&auto=format&fit=crop"
+                                src="{{ URL::asset('vitamine.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
-                                class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Complément</span>
+                                class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">COMPLÉMENT</span>
                         </div>
                         <div class="p-4">
                             <h3 class="font-display font-bold text-gray-900 mb-1">Vitamine C 1000</h3>
@@ -604,7 +603,7 @@
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
                         <div class="relative"><img
-                                src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&q=80&auto=format&fit=crop"
+                                src="{{ URL::asset('creme.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Cosmétique</span>
                         </div>
@@ -617,12 +616,12 @@
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
                         <div class="relative"><img
-                                src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80&auto=format&fit=crop"
+                                src="{{ URL::asset('bebe.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
-                                class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Enfant</span>
+                                class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Bébé</span>
                         </div>
                         <div class="p-4">
-                            <h3 class="font-display font-bold text-gray-900 mb-1">Sirop pédiatrique</h3>
+                            <h3 class="font-display font-bold text-gray-900 mb-1">Lotion bébé apaisante</h3>
                             <p class="text-green-500 font-bold mb-3">2 800 FCFA</p><button onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
@@ -630,12 +629,12 @@
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
                         <div class="relative"><img
-                                src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80&auto=format&fit=crop"
+                                src="{{ URL::asset('mains.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
-                                class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Soin</span>
+                                class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Hygiène</span>
                         </div>
                         <div class="p-4">
-                            <h3 class="font-display font-bold text-gray-900 mb-1">Antiseptique 250ml</h3>
+                            <h3 class="font-display font-bold text-gray-900 mb-1">Gel mains antiséptique</h3>
                             <p class="text-green-500 font-bold mb-3">2 200 FCFA</p><button onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
@@ -643,7 +642,7 @@
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
                         <div class="relative"><img
-                                src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&q=80&auto=format&fit=crop"
+                                src="{{ URL::asset('serum.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Cosmétique</span>
                         </div>
@@ -656,12 +655,12 @@
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
                         <div class="relative"><img
-                                src="https://images.unsplash.com/photo-1584308878768-57d3e1e0b4b5?w=500&q=80&auto=format&fit=crop"
+                                src="{{ URL::asset('multi.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Complément</span>
                         </div>
                         <div class="p-4">
-                            <h3 class="font-display font-bold text-gray-900 mb-1">Multivitamines</h3>
+                            <h3 class="font-display font-bold text-gray-900 mb-1">Multi-vitamines</h3>
                             <p class="text-green-500 font-bold mb-3">4 900 FCFA</p><button onclick="openModal('modal-st-cecile')"
                                 class="w-full btn-green text-white text-sm font-semibold py-2.5 rounded-xl">Voir
                                 détails</button>
@@ -669,7 +668,7 @@
                     </div>
                     <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
                         <div class="relative"><img
-                                src="https://images.unsplash.com/photo-1584555613497-9ecf9dd06f68?w=500&q=80&auto=format&fit=crop"
+                                src="{{ URL::asset('digital.jpeg') }}"
                                 class="w-full h-44 object-cover" alt="" /><span
                                 class="absolute top-3 left-3 bg-white text-gray-800 text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-sm">Matériel</span>
                         </div>
@@ -701,7 +700,7 @@
                         <h2 class="font-display text-4xl font-extrabold text-white leading-tight mb-4">Téléchargez
                             l'app<br />PharmaConsults</h2>
                         <p class="text-white/80 text-sm mb-8 max-w-sm">Profitez de toutes les fonctionnalités
-                            directement depuis votre téléphone. Gratuit, rapide, sécurisé.</p>
+                            directement depuis votre téléphone. Facile, rapide, sécurisé.</p>
                         <div class="flex flex-wrap gap-3">
                             <a onclick="openModal('modal-st-cecile')"
                                 class="flex items-center gap-3 bg-white/95 text-gray-900 px-5 py-3 rounded-2xl hover:bg-white transition-colors shadow-md">

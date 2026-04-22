@@ -8,8 +8,8 @@
             <div>
                 <div class="flex items-center gap-2 mb-4">
 
-                    <div>
-                        <img src="{{ URL::asset('logo.png') }}" alt="">
+                    <div style="width: 150px; height: 60px;">
+                        <img src="{{ URL::asset('logo1.png') }}" alt="">
                     </div>
                 </div>
                 <p class="text-gray-500 text-sm leading-relaxed mb-5">PharmaConsults connecte toutes les pharmacies
