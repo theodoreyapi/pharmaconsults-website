@@ -4,29 +4,83 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('gpt');
+    return view('home');
     //return view('welcome');
-});
-Route::get('/gpt', function () {
-    return view('gpt');
-});
-Route::get('/pharmacies-par-commune/{id}', function($id) {
+})->name('home');
+Route::get('about', function () {
+    return view('about');
+})->name('about');
+Route::get('contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('mentions', function () {
+
     $response = Http::withOptions([
         'verify' => false
     ])->withHeaders([
-        'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMDIyNTA1ODU4MzE2NDciLCJpc3MiOiJQQVRJRU5UIiwiaWF0IjoxNzQ3MDg0NzgzLCJleHAiOjE3NDcwODgzODN9.S0sMywcFkT8xnvqqCurUPkIEe_Os8m2iSnt8-h60mXk',
+        'Accept' => 'application/json',
+        'Content-Type' => 'application/json',
+    ])->get(env('API_BASE_URL_PHARMA') . '/pharma/parametres-generaux/getbyType/MENTIONS LEGALES');
+
+    if ($response->status() == 200) {
+        $communes = $response->json();
+
+        return view('mentions', compact('communes'));
+    } else {
+        return back()->withErrors(["Impossible de charger les communes. Veuillez réessayer!!"]);
+    }
+});
+Route::get('privacy', function () {
+
+    $response = Http::withOptions([
+        'verify' => false
+    ])->withHeaders([
+        'Accept' => 'application/json',
+        'Content-Type' => 'application/json',
+    ])->get(env('API_BASE_URL_PHARMA') . '/pharma/parametres-generaux/getbyType/POLITIQUE CONFIDENTIALITES');
+
+    if ($response->status() == 200) {
+        $communes = $response->json();
+
+        return view('privacy', compact('communes'));
+    } else {
+        return back()->withErrors(["Impossible de charger les communes. Veuillez réessayer!!"]);
+    }
+});
+Route::get('terms', function () {
+
+    $response = Http::withOptions([
+        'verify' => false
+    ])->withHeaders([
+        'Accept' => 'application/json',
+        'Content-Type' => 'application/json',
+    ])->get(env('API_BASE_URL_PHARMA') . '/pharma/parametres-generaux/getbyType/CONDITIONS GENERALES');
+
+    if ($response->status() == 200) {
+        $communes = $response->json();
+
+        return view('terms', compact('communes'));
+    } else {
+        return back()->withErrors(["Impossible de charger les communes. Veuillez réessayer!!"]);
+    }
+});
+
+Route::get('/pharmacies-par-commune/{id}', function ($id) {
+    $response = Http::withOptions([
+        'verify' => false
+    ])->withHeaders([
         'Accept' => 'application/json'
     ])->get(env('API_BASE_URL_PHARMA') . "/pharma/pharmacies/gardeIntervalByCommune?communeId={$id}");
 
     return $response->json();
 });
 
-Route::get('/pharmacie-garde', function () {
+Route::get('pharmacies', function () {
 
     $response = Http::withOptions([
         'verify' => false
     ])->withHeaders([
-        'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMDIyNTA1ODU4MzE2NDciLCJpc3MiOiJQQVRJRU5UIiwiaWF0IjoxNzQ3MDg0NzgzLCJleHAiOjE3NDcwODgzODN9.S0sMywcFkT8xnvqqCurUPkIEe_Os8m2iSnt8-h60mXk',
         'Accept' => 'application/json',
         'Content-Type' => 'application/json',
     ])->get(env('API_BASE_URL_PHARMA') . '/pharma/communes/search?page=0&size=1000');
@@ -34,12 +88,8 @@ Route::get('/pharmacie-garde', function () {
     if ($response->status() == 200) {
         $communes = $response->json();
 
-        return view('gpt-garde', compact('communes'));
+        return view('pharmacie', compact('communes'));
     } else {
         return back()->withErrors(["Impossible de charger les communes. Veuillez réessayer!!"]);
     }
-
-});
-Route::get('/garde', function () {
-    return view('garde');
-});
+})->name('pharmacies');
