@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow">
     <title>PharmaConsults — Votre santé connectée</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -575,7 +576,7 @@
                                             d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Développé par des pharmaciens expérimentés</span>
+                                <span class="text-gray-700">Développée par des pharmaciens expérimentés</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <div
