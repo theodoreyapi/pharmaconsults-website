@@ -250,7 +250,7 @@
                 </p>
                 <h1 class="font-display text-4xl font-extrabold text-gray-900 mb-4">Pharmacies de garde</h1>
                 <p class="text-gray-500 max-w-xl mx-auto text-sm">Consultez la liste des pharmacies ouvertes
-                    aujourd'hui dans toute la Côte d'Ivoire. Filtrez par commune ou recherchez par nom.</p>
+                    aujourd'hui dans toute la Côte d'Ivoire. Filtrez par commune.</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-3 mb-8 max-w-2xl mx-auto">
                 <select id="commune" class="px-10 py-3.5 rounded-xl border border-gray-200 text-sm text-gray-600">

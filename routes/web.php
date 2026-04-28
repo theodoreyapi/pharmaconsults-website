@@ -83,7 +83,7 @@ Route::get('pharmacies', function () {
     ])->withHeaders([
         'Accept' => 'application/json',
         'Content-Type' => 'application/json',
-    ])->get(env('API_BASE_URL_PHARMA') . '/pharma/communes/search?page=0&size=1000');
+    ])->get(env('API_BASE_URL_PHARMA') . '/pharma/communes');
 
     if ($response->status() == 200) {
 
