@@ -14,6 +14,10 @@ Route::get('contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('abonnement', function () {
+    return view('abonnement');
+});
+
 Route::get('mentions', function () {
 
     $response = Http::withOptions([

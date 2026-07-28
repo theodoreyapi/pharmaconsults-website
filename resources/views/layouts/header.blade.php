@@ -24,6 +24,8 @@
                     class="cursor-pointer px-3 py-1.5 hover:text-green-600 rounded-full transition-colors">Assurance</a>
                 <a onclick="openModal('modal-st-cecile')"
                     class="cursor-pointer px-3 py-1.5 hover:text-green-600 rounded-full transition-colors">Vaccination</a>
+                <a href="{{ url('abonnement') }}"
+                    class="{{ Route::is('abonnement') ? 'nav-pill-active' : '' }} cursor-pointer px-3 py-1.5 hover:text-green-600 rounded-full transition-colors">Abonnement</a>
                 <a href="{{ url('about') }}"
                     class="{{ Route::is('about') ? 'nav-pill-active' : '' }} cursor-pointer px-3 py-1.5 hover:text-green-600 rounded-full transition-colors">À
                     propos</a>
@@ -64,6 +66,8 @@
                     class="block px-3 py-2 text-sm text-gray-700 hover:bg-green-50 rounded-xl cursor-pointer">Assurance</a>
                 <a onclick="openModal('modal-st-cecile')"
                     class="block px-3 py-2 text-sm text-gray-700 hover:bg-green-50 rounded-xl cursor-pointer">Vaccination</a>
+                <a href="{{ url('abonnement') }}"
+                    class="block px-3 py-2 text-sm text-gray-700 hover:bg-green-50 rounded-xl cursor-pointer">Abonnement</a>
                 <a href="{{ url('about') }}"
                     class="block px-3 py-2 text-sm text-gray-700 hover:bg-green-50 rounded-xl cursor-pointer">À
                     propos</a>
